@@ -1,0 +1,45 @@
+<div class="shows-list-component">
+    <b-container class="header-container mb-4 mt-4">
+        <b-row>
+            <b-col md="4">
+                <div class="search-input-container">
+                    <input placeholder="Search In All Shows..." @input="searchInput$.next($event.target.value)">
+                </div>
+            </b-col>
+            <b-col md="8">
+                <div class="sort-container d-flex align-items-center justify-content-end h-100 mt-1 mt-md-0">
+                    <div class="sort-items-container">
+                        <label class="sort-item" v-bind:class="{'selected': selectedSort === sort}" v-for="sort of sortObjects" v-on:click="sortShows(sort)">{{sort.title}}</label>
+                    </div>
+                </div>
+            </b-col>
+        </b-row>
+    </b-container>
+    <b-container class="shows-list-container">
+        <Loading v-if="isLoading"/>
+        <b-row>
+            <b-col sm="12" md="2" class="mb-3 mt-3" v-for="show of showsListToShow">
+                <div class="show-item" v-on:click="goToDetails(show.id)">
+                    <div class="show-banner">
+                        <img v-if="show && show.image" :src=show.image.medium>
+                        <img v-else src="@/assets/img/movie-ph.jpeg">
+                    </div>
+                    <div class="show-info-container">
+                        <div class="show-info">
+                            <div class="emblem" v-if="show.rating.average">
+                                <label><i class="fa fa-thumbs-up"></i></label>
+                                <p>{{show.rating.average}}</p>
+                            </div>
+                            <h4 class="title" v-if="show">{{ show.name }}</h4>
+                            <div class="additional-container">
+                                <p class="premiered">{{splitPremieredDate(show.premiered)}}
+                                </p>
+                                <p class="genres"><label v-for="genre of show.genres">{{genre}}</label></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </b-col>
+        </b-row>
+    </b-container>
+</div>

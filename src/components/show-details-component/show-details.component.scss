@@ -1,0 +1,126 @@
+.show-details-component {
+  min-height: 100vh;
+
+  .show-details-container {
+    padding-top: 70px;
+    padding-bottom: 30px;
+    position: relative;
+
+    .background-container {
+      position: absolute;
+      background-size: 100%;
+      background-position: 0 50%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+      }
+    }
+
+    .show-image {
+      height: 300px;
+      width: 100%;
+    }
+
+    .show-general-info {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 100%;
+
+      .name {
+        color: white;
+      }
+
+      .rate-container {
+        .score {
+          background-color: #1f891e;
+
+          label {
+            background-color: #53a652;
+          }
+        }
+
+        .imdb {
+          background-color: #f6b828;
+
+          label {
+            background-color: #b5964f;
+          }
+        }
+      }
+
+      .genres-container {
+        margin-top: 30px;
+
+        .genre-item {
+          background-color: #707070;
+          color: white;
+          padding: 5px;
+          border-radius: 15px;
+          margin-right: 5px;
+          font-size: 12px;
+        }
+      }
+
+      .air-info-container {
+        margin-top: 20px;
+
+        .air-general {
+          color: white;
+        }
+
+        .clock {
+          background-color: #195daa;
+
+          label {
+            background-color: #588cc7;
+          }
+        }
+      }
+    }
+
+    .extra-info-container {
+      .casts-container {
+        .image-container {
+          width: 100%;
+          padding-top: 100%;
+          position: relative;
+          border-radius: 50%;
+          overflow: hidden;
+          img{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+          }
+        }
+      }
+
+      .summery-container {
+        text-align: justify;
+        color: white;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 767.9px) {
+  .background-container {
+    background-size: cover !important;
+    background-position: 0 50%;
+  }
+}

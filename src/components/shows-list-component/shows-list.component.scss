@@ -1,0 +1,129 @@
+.shows-list-component {
+  padding-top: 65px;
+  height: 100vh;
+
+  .header-container {
+
+    .app-title {
+
+    }
+
+    .search-input-container {
+      input {
+        width: 100%;
+        border: 2px solid #606060;
+        border-radius: 8px;
+        font-size: 16px;
+        padding: 7px 15px;
+      }
+    }
+
+    .sort-container {
+      .sort-items-container {
+        .sort-item {
+          background-color: #a7a7a7;
+          color: white;
+          padding: 5px 10px;
+          border-radius: 15px;
+          font-weight: bold;
+          margin-right: 5px;
+          cursor: pointer;
+
+          &.selected {
+            background-color: #6f6f6f;
+          }
+        }
+      }
+    }
+  }
+
+  .shows-list-container {
+    .show-item {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      cursor: pointer;
+
+      .show-banner {
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .show-info-container {
+        transition: 0.2s ease-in-out all;
+        position: absolute;
+        opacity: 0;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        display: flex;
+        align-items: flex-end;
+        background: rgba(255, 255, 255, 0);
+        background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.68) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.68)));
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.68) 100%);
+        background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.68) 100%);
+        background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.68) 100%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.68) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#000000', GradientType=0);
+
+        .show-info {
+          .title {
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: left;
+          }
+
+          .additional-container {
+            color: white;
+            font-size: 12px;
+
+            .premiered {
+              text-align: left;
+            }
+
+            .genres {
+              text-align: left;
+
+              label {
+                text-align: center;
+                margin-right: 5px;
+                font-size: 10px;
+                background-color: #707070;
+                padding: 0 3px;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .show-item:hover {
+    .show-info-container {
+      transition: 0.2s ease-in-out all;
+      opacity: 1 !important;
+    }
+  }
+}
+
+@media (max-width: 767.9px) {
+  .show-item {
+    .show-info-container {
+      opacity: 1 !important;
+    }
+  }
+}
