@@ -1,6 +1,6 @@
 # Qualibrate Shows Application
 
-A Show Discovery Application for the Qulibrate Interview Assignment Challenge. The project is a user interface for the TVMaze Open API to show a list of TV Shows and their Details.
+A Show Discovery Application for the Qulibrate Interview Assignment Challenge. The project is a user interface using the TVMaze Open API to show a list of TV Shows and their Details.
 
 ## Project Description And Structure
 
@@ -56,16 +56,16 @@ There are two ways to run this application: npm or docker. both ways are explain
 
 After cloning the project, redirect to the root directory of the project and run the commands below:
 ```
-$ npm install
+npm install
 ```
 After the dependency installation is complete, you can run the application using:
 ```
-$ npm run serve
+npm run serve
 ```
 
 The Application by default runs on port 8080. So make sure that the port is not in use or change port by running the last command like this:
 ```
-$ npm run serve -- --port <YOUR_PORT>
+npm run serve -- --port <YOUR_PORT>
 ```
 
 ### DOCKER
@@ -73,11 +73,11 @@ $ npm run serve -- --port <YOUR_PORT>
 
 After cloning the project, redirect to the root directory of the project and run the commands below:
 ```
-$ docker build -t qualibrate/qulibrate-show:1.0.0 .
+docker build -t qualibrate/qulibrate-show:1.0.0 .
 ```
 After the image is created you can run the application using this command:
 ```
-$ docker run -d -p <YOUR_PORT>:80 --name qulibrate-show qualibrate/qulibrate-show:1.0.0
+docker run -d -p <YOUR_PORT>:80 --name qulibrate-show qualibrate/qulibrate-show:1.0.0
 ```
 
 ## License
