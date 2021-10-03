@@ -1,4 +1,5 @@
 export interface ShowModel {
+  id: number
   name: string
   image: {
     medium: string

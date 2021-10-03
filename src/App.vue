@@ -10,6 +10,12 @@
         <i class="fa fa-chevron-right"></i>
       </div>
     </div>
+    <div class="online-container d-flex align-items-center justify-content-center" v-if="!isOnLine">
+      <div class="d-flex align-items-center justify-content-center">
+        <i class="fa fa-wifi "></i>
+        <p class="ms-3">No Internet Connection</p>
+      </div>
+    </div>
     <div id="body-container">
       <router-view></router-view>
     </div>
@@ -23,12 +29,23 @@ import Vue from 'vue'
 
 @Component
 export default class App extends Vue {
+  isOnLine = navigator.onLine
+
+  mounted () {
+    window.addEventListener('online', () => {
+      this.isOnLine = true
+    })
+    window.addEventListener('offline', () => {
+      this.isOnLine = false
+    })
+  }
+
   isBackButtonEnabled (): boolean {
-    return router.currentRoute.fullPath !== '/'
+    return this.$route.path !== '/shows'
   }
 
   backToHome (): void {
-    router.push('/')
+    router.push('/shows')
   }
 }
 </script>
@@ -61,6 +78,17 @@ p {
   .back {
     cursor: pointer;
   }
+}
+
+.online-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #701824;
+  height: 65px;
+  z-index: 1302;
+  color: white;
 }
 
 .emblem {
@@ -107,11 +135,11 @@ p {
 
 @media (max-width: 767.9px) {
   .header {
-    .subtitle{
+    .subtitle {
       display: none;
     }
 
-    .fa-chevron-right{
+    .fa-chevron-right {
       font-size: 30px !important;
     }
   }

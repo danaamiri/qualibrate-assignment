@@ -1,3 +1,4 @@
+// Convert duration by minuets to a splitted hour and minuet readable time
 export function runTimeDuration (value: number): string {
   if (!value) return ''
   if (value < 60) {
